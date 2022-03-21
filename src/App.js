@@ -1,30 +1,20 @@
-import {Routes, Route, Link} from 'react-router-dom'
-import HomePage from './pages/Home'
-import NewsPage from './pages/News'
-import ContactPage from './pages/Contact'
+import {Routes, Route, Link, Outlet} from 'react-router-dom'
+
 
 function App() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/news">News</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
+      <h1>Bookkeeper</h1>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to="/invoices">Invoices</Link> |{" "}
+        <Link to="/expenses">Expenses</Link>
       </nav>
-
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/news" element={<NewsPage/>} />
-        <Route path="/contact" element={<ContactPage/>} />
-      </Routes>
+      <Outlet/>
     </div>
   );
 }
